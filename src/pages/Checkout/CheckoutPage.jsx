@@ -15,9 +15,12 @@ export function CheckoutPage({ cart, loadCart }) {
     const fetchCheckoutData = async () => {
       let response = await axios.get(
         '/api/delivery-options?expand=estimatedDeliveryTime')
-      setDeliveryOptions(response.data);
+      setDeliveryOptions(response.data)
+      console.log(response.data)
     }
-    fetchCheckoutData()
+    fetchCheckoutData();
+
+
   }, []);
 
   useEffect(() => {
@@ -30,7 +33,10 @@ export function CheckoutPage({ cart, loadCart }) {
 
   useEffect(() => {
     const favicon = document.querySelector("link[rel='icon']");
-    favicon.href = "/cart-favicon.png";
+    if (favicon) {
+      favicon.href = "/cart-favicon.png";
+    }
+
   }, []);
 
   return (
@@ -51,7 +57,7 @@ export function CheckoutPage({ cart, loadCart }) {
           />
 
           <PaymentSummary paymentSummary={paymentSummary}
-          loadCart={loadCart} />
+            loadCart={loadCart} />
         </div>
 
       </div>
