@@ -55,6 +55,6 @@ describe('product componet', () => {
       quantity: 1
     });
     expect(loadCart).toHaveBeenCalled();
-    
+
   })
 })
