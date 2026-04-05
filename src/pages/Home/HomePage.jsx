@@ -11,7 +11,11 @@ export function HomePage({ cart ,loadCart}) {
   useEffect(() => {
     document.title = "Home";
     const favicon = document.querySelector("link[rel='icon']");
-    favicon.href = "/home-favicon.png";
+    if(favicon){
+      favicon.href = "/home-favicon.png";
+
+    }
+    
   }, []);
 
   useEffect(() => {
